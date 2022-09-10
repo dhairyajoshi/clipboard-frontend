@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import MDEditor from "@uiw/react-md-editor";
+import './index.css'
+import axios from 'axios';
 
-function App() {
+
+export default function App() {
+  const [val,setVal] = useState('')
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{display:"flex",flexDirection:"column",alignItems:"center",width:"100%"}}>   
+    <div style={{height:600,width:"100%"}}>   
+      <MDEditor
+        value={val}
+        className="hello"
+        preview="edit"
+        
+        onChange= {(c)=> setVal(c)}
+        textareaProps={{
+          placeholder: "Please enter Markdown text"
+        }}
+      /> 
     </div>
-  );
-}
-
-export default App;
+    <button onClick={()=>{axios.post('http://localhost:3000/post',{code:val})}} style={{width:100,height:50}}>Submit</button> 
+    </div>
+  ); 
+}  
+  
