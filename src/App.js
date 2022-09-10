@@ -20,7 +20,7 @@ export default function App() {
         }}
       /> 
     </div>
-    <button onClick={()=>{axios.post('http://localhost:3000/post',{code:val})}} style={{width:100,height:50}}>Submit</button> 
+    <button onClick={()=>{axios.post('https://clipboard-uowm.onrender.com/post',{code:val})}} style={{width:100,height:50}}>Submit</button> 
     </div>
   ); 
 }  
