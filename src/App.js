@@ -57,7 +57,7 @@ export default function App() {
         <button
           onClick={async() => {
             setRetrieve(true);
-            const res= await axios.get("https://clpboard.onrender.com/?name="+code)
+            const res= await axios.get("https://clipboard-uowm.onrender.com/post/?name="+code)
             setVal(res.data)
           }}
         > 
@@ -65,7 +65,7 @@ export default function App() {
         </button>
         <button
           onClick={async() => {
-            const res= await axios.post("https://clpboard.onrender.com/post", {
+            const res= await axios.post("https://clipboard-uowm.onrender.com/post", {
               code: val,
               name:code,
             });
